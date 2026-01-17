@@ -61,8 +61,9 @@ function ResourceDisplay({ resources, failedResource }: { resources: Resources; 
 }
 
 export default function GameOver({ gameState, onRestart }: GameOverProps) {
-  const { resources, gameOverReason, turnCount } = gameState;
+  const { resources, gameOverReason, turnCount, maxTurns } = gameState;
   const message = getGameOverMessage(gameOverReason);
+  const remainingScenarios = maxTurns - turnCount;
 
   const getIcon = () => {
     switch (gameOverReason) {
@@ -73,29 +74,51 @@ export default function GameOver({ gameState, onRestart }: GameOverProps) {
     }
   };
 
+  // Special title for time-out before completing all scenarios
+  const isTimeOutEarly = gameOverReason === "time" && remainingScenarios > 0;
+
   return (
     <div className="min-h-screen bg-linear-to-b from-red-900 to-red-700 flex items-center justify-center px-4">
       <div className="max-w-2xl w-full text-center text-white">
         <div className="text-8xl mb-4">{getIcon()}</div>
-        <h1 className="text-5xl md:text-6xl font-bold mb-6">Game Over</h1>
+        <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          {isTimeOutEarly ? "Hết Nhiệm Kỳ" : "Game Over"}
+        </h1>
         
         <div className="bg-white bg-opacity-95 backdrop-blur rounded-lg p-8 mb-8 text-left">
-          <h2 className="text-2xl font-semibold mb-4 text-red-800 text-center">{message.title}</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-red-800 text-center">
+            {isTimeOutEarly ? "Nhiệm kỳ kết thúc khi mọi việc còn dang dở" : message.title}
+          </h2>
           
           {/* Resource Display */}
           <div className="mb-6">
             <ResourceDisplay resources={resources} failedResource={gameOverReason} />
           </div>
 
-          <div className="bg-red-50 rounded p-6 mb-6">
-            <p className="text-base leading-relaxed text-gray-700">
-              Sau <strong>{turnCount}</strong> tình huống, {message.description}
-            </p>
-          </div>
+          {isTimeOutEarly ? (
+            <div className="bg-amber-50 border-l-4 border-amber-500 rounded p-6 mb-6">
+              <p className="text-base leading-relaxed text-gray-700 mb-3">
+                Bạn mới hoàn thành <strong>{turnCount}/{maxTurns}</strong> tình huống khi thời gian nhiệm kỳ đã hết.
+              </p>
+              <p className="text-base leading-relaxed text-gray-700">
+                Còn <strong>{remainingScenarios} tình huống</strong> quan trọng chưa được xử lý. 
+                Những quyết định đúng đắn cần thời gian - nhưng không có nghĩa là làm chậm trễ mọi thứ.
+              </p>
+            </div>
+          ) : (
+            <div className="bg-red-50 rounded p-6 mb-6">
+              <p className="text-base leading-relaxed text-gray-700">
+                Sau <strong>{turnCount}</strong> tình huống, {message.description}
+              </p>
+            </div>
+          )}
 
           <div className="bg-red-100 border-l-4 border-red-600 rounded p-4 mb-6">
             <p className="text-lg font-semibold text-red-900">
-              &ldquo;Lãnh đạo là nghệ thuật cân bằng - mất một nguồn lực có thể kéo sụp tất cả.&rdquo;
+              {isTimeOutEarly 
+                ? `"Lãnh đạo giỏi biết làm đúng việc đúng lúc - không phải cố hoàn hảo mà bỏ lỡ thời cơ."`
+                : `"Lãnh đạo là nghệ thuật cân bằng - mất một nguồn lực có thể kéo sụp tất cả."`
+              }
             </p>
           </div>
 
@@ -116,7 +139,15 @@ export default function GameOver({ gameState, onRestart }: GameOverProps) {
                   <li>• Cần xây dựng và duy trì quan hệ tốt với đồng nghiệp</li>
                 </>
               )}
-              {gameOverReason === "time" && (
+              {gameOverReason === "time" && isTimeOutEarly && (
+                <>
+                  <li>• Mỗi quyết định đều tiêu tốn thời gian quý báu</li>
+                  <li>• Làm đúng việc cũng cần làm đúng lúc</li>
+                  <li>• Quản lý thời gian là kỹ năng sống còn của người lãnh đạo</li>
+                  <li>• Đôi khi cần chấp nhận giải pháp tốt thay vì chờ giải pháp hoàn hảo</li>
+                </>
+              )}
+              {gameOverReason === "time" && !isTimeOutEarly && (
                 <>
                   <li>• Thời gian là nguồn lực quý giá nhất</li>
                   <li>• Làm đúng cũng cần làm kịp thời</li>

@@ -40,12 +40,12 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Chờ báo cáo đầy đủ rồi mới quyết định",
-        impacts: { trust: -10, politicalCapital: 5, time: 5 },
+        impacts: { trust: -10, politicalCapital: 5, time: 0 },
         isNegative: true
       },
       {
         text: "Đổ lỗi cho địa phương, tập trung công việc khác",
-        impacts: { trust: -25, politicalCapital: -5, time: 10 },
+        impacts: { trust: -25, politicalCapital: -5, time: 0 },
         isNegative: true
       }
     ]
@@ -68,7 +68,7 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Im lặng, chờ dư luận lắng xuống",
-        impacts: { trust: -8, politicalCapital: 5, time: 5 },
+        impacts: { trust: -8, politicalCapital: 5, time: 0 },
         isNegative: true
       },
       {
@@ -78,7 +78,7 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Tìm cách gây áp lực để rút bài",
-        impacts: { trust: -20, politicalCapital: -20, time: 10 },
+        impacts: { trust: -20, politicalCapital: -20, time: -5 },
         isNegative: true
       }
     ]
@@ -101,17 +101,17 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Mời lực lượng giữ trật tự, chờ giải tán tự nhiên",
-        impacts: { trust: -5, politicalCapital: 5, time: 5 },
+        impacts: { trust: -5, politicalCapital: 5, time: 0 },
         isNegative: true
       },
       {
         text: "Phớt lờ, tiếp tục công việc bình thường",
-        impacts: { trust: -15, politicalCapital: 0, time: 10 },
+        impacts: { trust: -15, politicalCapital: 0, time: 0 },
         isNegative: true
       },
       {
         text: "Cưỡng chế giải tán để ổn định trật tự",
-        impacts: { trust: -30, politicalCapital: -15, time: 5 },
+        impacts: { trust: -30, politicalCapital: -15, time: 0 },
         isNegative: true
       }
     ]
@@ -134,12 +134,12 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Giữ khoảng cách, tập trung công việc hiện tại",
-        impacts: { trust: 0, politicalCapital: 5, time: 5 },
+        impacts: { trust: 0, politicalCapital: 5, time: 0 },
         isNegative: false
       },
       {
         text: "Tìm cách bảo vệ hình ảnh cá nhân trước",
-        impacts: { trust: -10, politicalCapital: 10, time: 5 },
+        impacts: { trust: -10, politicalCapital: 10, time: 0 },
         isNegative: true
       },
       {
@@ -172,12 +172,12 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Giấu thông tin để tránh hoang mang",
-        impacts: { trust: -20, politicalCapital: 5, time: 10 },
+        impacts: { trust: -20, politicalCapital: 5, time: 0 },
         isNegative: true
       },
       {
         text: "Đổ lỗi cho y tế cơ sở thiếu năng lực",
-        impacts: { trust: -15, politicalCapital: -10, time: 5 },
+        impacts: { trust: -15, politicalCapital: -10, time: 0 },
         isNegative: true
       }
     ]
@@ -200,17 +200,17 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Nhắc nhở riêng, yêu cầu tự khắc phục",
-        impacts: { trust: -5, politicalCapital: 10, time: 5 },
+        impacts: { trust: -5, politicalCapital: 10, time: 0 },
         isNegative: true
       },
       {
         text: "Điều chuyển công tác để tránh scandal",
-        impacts: { trust: -12, politicalCapital: 5, time: 5 },
+        impacts: { trust: -12, politicalCapital: 5, time: 0 },
         isNegative: true
       },
       {
         text: "Che giấu, chia sẻ lợi ích",
-        impacts: { trust: -30, politicalCapital: 15, time: 10 },
+        impacts: { trust: -30, politicalCapital: 15, time: -5 },
         isNegative: true
       }
     ]
@@ -233,17 +233,17 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Yêu cầu đăng ký lịch tiếp dân theo quy định",
-        impacts: { trust: 0, politicalCapital: 5, time: 5 },
+        impacts: { trust: 0, politicalCapital: 5, time: 0 },
         isNegative: false
       },
       {
         text: "Gọi lực lượng bảo vệ giải tán đám đông",
-        impacts: { trust: -15, politicalCapital: 0, time: 10 },
+        impacts: { trust: -15, politicalCapital: 0, time: 0 },
         isNegative: true
       },
       {
         text: "Đổ lỗi cho cấp dưới, từ chối trách nhiệm",
-        impacts: { trust: -20, politicalCapital: -5, time: 5 },
+        impacts: { trust: -20, politicalCapital: -5, time: 0 },
         isNegative: true
       }
     ]
@@ -271,12 +271,12 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Yêu cầu nhà máy tự cam kết, không công khai",
-        impacts: { trust: -10, politicalCapital: 10, time: 5 },
+        impacts: { trust: -10, politicalCapital: 10, time: 0 },
         isNegative: true
       },
       {
         text: "Bao che vì nhà máy có quan hệ đặc biệt",
-        impacts: { trust: -25, politicalCapital: 15, time: 10 },
+        impacts: { trust: -25, politicalCapital: 15, time: -5 },
         isNegative: true
       }
     ]
@@ -299,7 +299,7 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Chờ dư luận tự điều chỉnh",
-        impacts: { trust: -5, politicalCapital: 5, time: 10 },
+        impacts: { trust: -5, politicalCapital: 5, time: 0 },
         isNegative: true
       },
       {
@@ -337,12 +337,12 @@ export const crisisEvents: CrisisEvent[] = [
       },
       {
         text: "Bảo vệ quyền lợi doanh nghiệp để giữ đầu tư",
-        impacts: { trust: -15, politicalCapital: 10, time: 5 },
+        impacts: { trust: -15, politicalCapital: 10, time: 0 },
         isNegative: true
       },
       {
         text: "Cưỡng chế để hoàn thành dự án đúng tiến độ",
-        impacts: { trust: -30, politicalCapital: -10, time: 10 },
+        impacts: { trust: -30, politicalCapital: -10, time: -5 },
         isNegative: true
       }
     ]

@@ -98,21 +98,24 @@ export function calculateMultiplier(scenarioId: string, negativeHistory: Record<
 
 /**
  * Generate resource impacts based on trustImpact
- * Logic: Positive trust = costs time/political capital, Negative trust = saves time but loses trust
+ * Logic: 
+ * - Time can only decrease or stay the same (never increases)
+ * - Good choices: gain trust, cost more time
+ * - Bad choices: lose trust, cost less time but still costs
  */
 export function generateImpacts(trustImpact: number, isNegative: boolean): Resources {
   if (isNegative) {
-    // Bad choices: lose trust, but might save time or gain political favors
-    const timeSave = Math.floor(Math.random() * 6) + 3; // +3 to +8
+    // Bad choices: lose trust, minimal time cost, might gain political favors
+    const timeCost = -Math.floor(Math.random() * 3); // 0 to -2 (minimal cost for bad choices)
     const pcChange = Math.floor(Math.random() * 10) - 2; // -2 to +7
     return {
       trust: trustImpact,
       politicalCapital: pcChange,
-      time: timeSave
+      time: timeCost
     };
   } else if (trustImpact > 0) {
     // Good choices: gain trust, but costs time and maybe political capital
-    const timeCost = -Math.floor(trustImpact * 0.8 + Math.random() * 5);
+    const timeCost = -Math.floor(trustImpact * 0.8 + Math.random() * 5); // Always negative
     const pcCost = trustImpact > 5 ? -Math.floor(Math.random() * 8) - 2 : Math.floor(Math.random() * 5) - 2;
     return {
       trust: trustImpact,
@@ -120,11 +123,12 @@ export function generateImpacts(trustImpact: number, isNegative: boolean): Resou
       time: timeCost
     };
   } else {
-    // Neutral choices: balanced
+    // Neutral choices: small time cost
+    const timeCost = -Math.floor(Math.random() * 3); // 0 to -2
     return {
       trust: 0,
       politicalCapital: Math.floor(Math.random() * 6) - 2,
-      time: Math.floor(Math.random() * 4) - 2
+      time: timeCost
     };
   }
 }
