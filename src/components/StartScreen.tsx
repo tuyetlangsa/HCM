@@ -55,7 +55,6 @@ export default function StartScreen({ onStart, role }: StartScreenProps) {
             <ul className="text-sm space-y-2 text-left text-gray-800">
               <li>• <strong>Multiplier:</strong> Lặp lại sai lầm → hậu quả tăng x1.25, x1.5, x2.0...</li>
               <li>• <strong>Sự kiện khủng hoảng:</strong> Khi niềm tin thấp, các vụ việc nghiêm trọng (tham nhũng lớn, khủng hoảng môi trường) xuất hiện nhiều hơn</li>
-              <li>• <strong>20 tình huống ngẫu nhiên:</strong> Mỗi lần chơi khác nhau</li>
             </ul>
           </div>
 

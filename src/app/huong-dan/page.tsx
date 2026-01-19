@@ -89,6 +89,12 @@ export default function HuongDanPage() {
             >
               🎮 Bắt đầu chơi ngay
             </Link>
+            <Link 
+              href="/cong-nghe"
+              className="px-8 py-4 bg-white/10 backdrop-blur text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border border-white/20"
+            >
+              ⚙️ Công Nghệ & AI
+            </Link>
           </div>
         </div>
       </section>
